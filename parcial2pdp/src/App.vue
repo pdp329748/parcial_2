@@ -7,7 +7,7 @@
 				<input type="text" v-model="author" id="authorInput">
 				<button type="submit" id="submitButton">{{statusEdit ? "Edit book" : "Add book"}}
 				</button>
-				<button v-if="statusEdit" @click="statusEdit = false, name = ''">Cancel</button>
+				<button v-if="statusEdit" @click="cancelEdit()">Cancel</button>
 			</p>
 		</form>
 		<img src="@/assets/loading.gif" v-if="loading">
@@ -78,6 +78,11 @@
 				this.title = ""
 				this.author = ""
 				this.listBooks()
+			},
+			cancelEdit() {
+				this.statusEdit = false
+				this.title = ''
+				this.author = ''
 			}
 		}
 	}
